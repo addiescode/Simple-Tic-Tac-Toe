@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title>Tic Tac toe</title>
+      <style>
+      body
+        {background-image: url(locker.jpg); background-size: cover;}
+
+
+
+      #main{ width: 500px;height: 550px;border:2px solid white;border:none;margin-left: 450px}
+      input{width: 131px;height: 150px;float: left;font-family: verdana;font-size: 50px;border:4px solid gold;background:transparent;outline:none;color:		#00FFFF;}
+
+      #btnReset{
+display:inline-block;
+color:#2396f3;
+text-transform:uppercase;
+letter-spacing: 4px;
+text-decoration: none;
+overflow:hidden;
+          width: 400px;
+          margin-top: 20px;
+                      height:110px;
+                      transition: 0.2s;
+                border: none;
+    }
+
+#btnReset:hover{
+color: #255784;
+background: #2196f3;
+box-shadow: 0 0 10px #2196f3,0 0 40px #2196f3,0 0 80px #2196f3;
+transition-delay: 0.4s;
+border
+}
+
+      #btn1{
+         border-top: none;border-left: none;background-color: none;
+       }
+      #btn2{
+        border-top: none;
+      }
+      #btn3{
+         border-top: none;border-right:none;
+
+       }
+      #btn4{
+         border-left:none;
+       }
+      #btn6{
+        border-right: none;
+      }
+      #btn7{
+        border-bottom: none;border-left: none;
+      }
+      #btn8{
+        border-bottom: none;
+      }
+      #btn9{
+        border-right: none;border-bottom: none;
+      }
+
+
+
+      </style>
+  </head>
+  <meta charset="utf-8">
+<body>
+
+
+
+
+
+<div id ="main">
+  <input type ="button" id="btn1" onclick=" clickBtn('btn1')"><input type ="button" id="btn2" onclick=" clickBtn('btn2')"><input type="button" id="btn3"onclick=" clickBtn('btn3')">
+  <input type ="button" id="btn4" onclick=" clickBtn('btn4')"><input type ="button" id="btn5" onclick=" clickBtn('btn5')"><input type="button" id="btn6"onclick=" clickBtn('btn6')">
+  <input type ="button" id="btn7" onclick=" clickBtn('btn7')"><input type ="button" id="btn8" onclick=" clickBtn('btn8')"><input type="button" id="btn9"onclick=" clickBtn('btn9')">
+
+<input type="button" id="btnReset" onclick="Reset()" value="RESET">
+
+
+</div>
+<script>
+var right=new Audio();
+var up=new Audio();
+var win= new Audio();
+right.src="beep.mp3";
+
+var game=1;
+function clickBtn(btn){
+  if(game==1){
+document.getElementById(btn).value="x"
+
+game-=1;
+document.getElementById(btn).disabled="disabled";
+winner();
+right.play();
+}
+  else {
+    document.getElementById(btn).value="o";
+    game+= 1;
+    document.getElementById(btn).disabled="disabled";
+    winner();
+  }
+}
+function winner()
+{
+
+if(
+  document.getElementById("btn1").value=="x"&&
+  document.getElementById("btn2").value=="x"&&
+  document.getElementById("btn3").value=="x"||
+
+
+    document.getElementById("btn4").value=="x"&&
+    document.getElementById("btn5").value=="x"&&
+    document.getElementById("btn6").value=="x"||
+
+      document.getElementById("btn7").value=="x"&&
+      document.getElementById("btn8").value=="x"&&
+      document.getElementById("btn9").value=="x"||
+
+
+        document.getElementById("btn1").value=="x"&&
+        document.getElementById("btn5").value=="x"&&
+        document.getElementById("btn9").value=="x"||
+
+
+          document.getElementById("btn3").value=="x"&&
+          document.getElementById("btn5").value=="x"&&
+          document.getElementById("btn7").value=="x"||
+
+            document.getElementById("btn1").value=="x"&&
+            document.getElementById("btn4").value=="x"&&
+            document.getElementById("btn7").value=="x"||
+
+              document.getElementById("btn2").value=="x"&&
+              document.getElementById("btn5").value=="x"&&
+              document.getElementById("btn8").value=="x"||
+
+                document.getElementById("btn3").value=="x"&&
+                document.getElementById("btn6").value=="x"&&
+                document.getElementById("btn9").value=="x"
+)
+{document.write("<img src='xwins.png' width=100% height=98%>")
+}
+
+else if(
+document.getElementById("btn1").value=="o"&&
+  document.getElementById("btn2").value=="o"&&
+  document.getElementById("btn3").value=="o"||
+
+
+    document.getElementById("btn4").value=="o"&&
+    document.getElementById("btn5").value=="o"&&
+    document.getElementById("btn6").value=="o"||
+
+      document.getElementById("btn7").value=="o"&&
+      document.getElementById("btn8").value=="o"&&
+      document.getElementById("btn9").value=="o"||
+
+
+        document.getElementById("btn1").value=="o"&&
+        document.getElementById("btn5").value=="o"&&
+        document.getElementById("btn9").value=="o"||
+
+
+          document.getElementById("btn3").value=="o"&&
+          document.getElementById("btn5").value=="o"&&
+          document.getElementById("btn7").value=="o"||
+
+            document.getElementById("btn1").value=="o"&&
+            document.getElementById("btn4").value=="o"&&
+            document.getElementById("btn7").value=="o"||
+
+              document.getElementById("btn2").value=="o"&&
+              document.getElementById("btn5").value=="o"&&
+              document.getElementById("btn8").value=="o"||
+
+                document.getElementById("btn3").value=="o"&&
+                document.getElementById("btn6").value=="o"&&
+                document.getElementById("btn9").value=="o"
+              )
+ {document.write("<img src='owin.png' width=100% height=98%>")}
+
+}
+function Reset()
+{
+  document.getElementById("btn1").value=""
+  document.getElementById("btn2").value=""
+  document.getElementById("btn3").value=""
+  document.getElementById("btn4").value=""
+  document.getElementById("btn5").value=""
+  document.getElementById("btn6").value=""
+  document.getElementById("btn7").value=""
+  document.getElementById("btn8").value=""
+  document.getElementById("btn9").value=""
+
+  document.getElementById("btn1").disabled=""
+  document.getElementById("btn2").disabled=""
+  document.getElementById("btn3").disabled=""
+  document.getElementById("btn4").disabled=""
+  document.getElementById("btn5").disabled=""
+  document.getElementById("btn6").disabled=""
+  document.getElementById("btn7").disabled=""
+  document.getElementById("btn8").disabled=""
+  document.getElementById("btn9").disabled=""
+
+}
+
+</script>
+</body>
+</html>
